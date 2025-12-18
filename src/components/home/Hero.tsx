@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import heroImage from '@assets/generated_images/woman_practicing_yoga_in_a_sunlit_room_with_plants.png';
+
+const heroImage = '/attached_assets/generated_images/woman_practicing_yoga_in_a_sunlit_room_with_plants.png';
 
 export function Hero() {
   return (
