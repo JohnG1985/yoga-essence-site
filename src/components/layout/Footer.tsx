@@ -41,14 +41,34 @@ export function Footer() {
           <p className="text-sm text-muted-foreground text-center md:text-left">
             © {new Date().getFullYear()} Entre Soi et Moi. Tous droits réservés.
           </p>
-          
-          <button 
-            onClick={scrollToTop}
-            className="p-3 bg-white rounded-full shadow-md hover:shadow-lg hover:bg-primary hover:text-white transition-all duration-300"
-            aria-label="Retour en haut"
-          >
-            <ArrowUp size={20} />
-          </button>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.facebook.com/share/17MnvEpSGL/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visiter la page Facebook"
+              className="text-primary/80 hover:text-primary transition-all duration-200 ease-in-out hover:scale-105 hover:opacity-90"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-6 w-6"
+                aria-hidden
+              >
+                <path d="M13.5 9.5H16a.5.5 0 0 0 .5-.5V6.5A.5.5 0 0 0 16 6h-2.5c-1.657 0-3 1.343-3 3v1H9a.5.5 0 0 0-.5.5V13a.5.5 0 0 0 .5.5h1.5V19a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 13.5 19v-5.5H16a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2.5v-1c0-.552.448-1 1-1Z" />
+              </svg>
+            </a>
+
+            <button
+              onClick={scrollToTop}
+              className="p-3 bg-white rounded-full shadow-md hover:shadow-lg hover:bg-primary hover:text-white transition-all duration-300"
+              aria-label="Retour en haut"
+            >
+              <ArrowUp size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </footer>
