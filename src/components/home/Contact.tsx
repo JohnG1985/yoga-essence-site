@@ -28,7 +28,7 @@ export function Contact() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwATgT62uhMt27zQgWHdK6xuNJeRr2dX_a64J_sm_TzHV8rdtDltAGoQxbmd7Eki7nl/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyvk37UN-mzsPDsECDwc-M9Em1ehVv-LVAoznQus97wPUNZbF0VvKc36f6Uh334U4H2/exec', {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(values).toString(),
