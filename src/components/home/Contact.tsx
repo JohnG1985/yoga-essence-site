@@ -17,7 +17,6 @@ const formSchema = z.object({
 
 export function Contact() {
   const { toast } = useToast();
-  const formName = 'contact';
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,18 +27,18 @@ export function Contact() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const payload = new URLSearchParams({
-      'form-name': formName,
-      ...values,
-      'bot-field': '',
-    });
-
     try {
-      await fetch('/', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbx3m080c_zztOfXoa-kwApuVm59U3wIpNINrr_8SOonfTZsdXQefCaUS_UR_hkxS7Bu/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: payload.toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
       });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Submission failed');
+      }
 
       toast({
         title: "Message envoyé !",
@@ -47,7 +46,7 @@ export function Contact() {
       });
       form.reset();
     } catch (error) {
-      console.error('Netlify form submission failed', error);
+      console.error('Contact form submission failed', error);
       toast({
         title: "Une erreur s'est produite",
         description: "Impossible d'envoyer votre message pour le moment. Merci de réessayer.",
@@ -116,15 +115,9 @@ export function Contact() {
           >
             <Form {...form}>
               <form
-                name={formName}
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="space-y-6"
               >
-                <input type="hidden" name="form-name" value={formName} />
-                <input type="hidden" name="bot-field" />
                 <FormField
                   control={form.control}
                   name="name"
