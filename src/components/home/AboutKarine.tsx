@@ -29,8 +29,6 @@ export function AboutKarine() {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            {/* Decorative frame */}
-            <div className="absolute -inset-3 border-2 border-primary/30 rounded-2xl -z-0 hidden md:block" />
           </motion.div>
 
           {/* Text Column */}

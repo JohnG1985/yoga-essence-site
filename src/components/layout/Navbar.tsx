@@ -27,14 +27,23 @@ export function Navbar() {
   const scrollToSection = (id: string) => {
     const element = document.querySelector(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const handleNavClick = (event: MouseEvent<HTMLElement>, id: string) => {
     event.preventDefault();
-    scrollToSection(id);
     setIsMobileMenuOpen(false);
+
+    const performScroll = () => scrollToSection(id);
+
+    if (isMobileMenuOpen) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(performScroll);
+      });
+    } else {
+      performScroll();
+    }
   };
 
   return (
