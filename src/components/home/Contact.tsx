@@ -17,6 +17,7 @@ const formSchema = z.object({
 
 export function Contact() {
   const { toast } = useToast();
+  const formName = 'contact';
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,13 +27,33 @@ export function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message envoyé !",
-      description: "Merci de m'avoir contactée. Je vous répondrai sous peu.",
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const payload = new URLSearchParams({
+      'form-name': formName,
+      ...values,
+      'bot-field': '',
     });
-    form.reset();
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload.toString(),
+      });
+
+      toast({
+        title: "Message envoyé !",
+        description: "Merci de m'avoir contactée. Je vous répondrai sous peu.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Netlify form submission failed', error);
+      toast({
+        title: "Une erreur s'est produite",
+        description: "Impossible d'envoyer votre message pour le moment. Merci de réessayer.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -94,7 +115,16 @@ export function Contact() {
             className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-border/50"
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="bot-field" />
                 <FormField
                   control={form.control}
                   name="name"
