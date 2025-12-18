@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import karinePortrait from '@assets/generated_images/Karine.jpg';
-import abstractShape from '@assets/generated_images/abstract_soft_watercolor_organic_shapes.png';
+
+const karinePortrait = '/attached_assets/generated_images/Karine.jpg';
+const abstractShape = '/attached_assets/generated_images/abstract_soft_watercolor_organic_shapes.png';
 
 export function AboutKarine() {
   return (
