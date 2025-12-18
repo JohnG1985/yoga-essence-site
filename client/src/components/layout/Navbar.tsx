@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import { useState, useEffect, type MouseEvent } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -25,13 +24,17 @@ export function Navbar() {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
+  const scrollToSection = (id: string) => {
     const element = document.querySelector(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
     }
+  };
+
+  const handleNavClick = (event: MouseEvent<HTMLElement>, id: string) => {
+    event.preventDefault();
+    scrollToSection(id);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -42,9 +45,9 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a 
-          href="#hero" 
-          onClick={(e) => scrollToSection(e, '#hero')}
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, '#hero')}
           className="text-2xl font-serif font-bold text-primary tracking-wide"
         >
           Entre Soi et Moi
@@ -56,17 +59,14 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm uppercase tracking-wider"
             >
               {link.name}
             </a>
           ))}
-          <button 
-            onClick={(e) => {
-               const element = document.querySelector('#contact');
-               element?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          <button
+            onClick={(e) => handleNavClick(e, '#contact')}
             className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           >
             Réserver
@@ -96,18 +96,14 @@ export function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-foreground/80 hover:text-primary font-medium text-lg block py-2 border-b border-border/50"
                 >
                   {link.name}
                 </a>
               ))}
-              <button 
-                 onClick={(e) => {
-                    const element = document.querySelector('#contact');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                    setIsMobileMenuOpen(false);
-                 }}
+              <button
+                onClick={(e) => handleNavClick(e, '#contact')}
                 className="bg-primary text-primary-foreground w-full py-3 rounded-md font-medium mt-4"
               >
                 Réserver une séance
