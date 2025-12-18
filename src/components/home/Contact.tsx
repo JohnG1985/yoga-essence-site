@@ -100,7 +100,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Studio</h4>
-                  <p className="text-muted-foreground">Rive-Sud de Montréal<br/>(Disponible en ligne également)</p>
+                  <p className="text-muted-foreground">Saint-Hubert – Rive-Sud de Montréal<br/>(Disponible en ligne également)</p>
                 </div>
               </div>
             </div>
