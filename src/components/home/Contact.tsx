@@ -28,15 +28,15 @@ export function Contact() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbx3m080c_zztOfXoa-kwApuVm59U3wIpNINrr_8SOonfTZsdXQefCaUS_UR_hkxS7Bu/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwATgT62uhMt27zQgWHdK6xuNJeRr2dX_a64J_sm_TzHV8rdtDltAGoQxbmd7Eki7nl/exec', {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(values).toString(),
       });
 
       const data = await response.json();
 
-      if (!response.ok || !data.success) {
+      if (data.success !== true) {
         throw new Error(data.message || 'Submission failed');
       }
 
