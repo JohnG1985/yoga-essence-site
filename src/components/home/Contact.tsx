@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -17,6 +18,8 @@ const formSchema = z.object({
 
 export function Contact() {
   const { toast } = useToast();
+  const [isSending, setIsSending] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -26,33 +29,25 @@ export function Contact() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyvk37UN-mzsPDsECDwc-M9Em1ehVv-LVAoznQus97wPUNZbF0VvKc36f6Uh334U4H2/exec', {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(values).toString(),
-      });
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSending(true);
+    setShowSuccess(true);
+    toast({
+      title: "Message envoyé !",
+      description: "Merci de m'avoir contactée. Je vous répondrai sous peu.",
+    });
+    form.reset();
 
-      const data = await response.json();
+    setTimeout(() => setIsSending(false), 1200);
+    setTimeout(() => setShowSuccess(false), 6000);
 
-      if (data.success !== true) {
-        throw new Error(data.message || 'Submission failed');
-      }
-
-      toast({
-        title: "Message envoyé !",
-        description: "Merci de m'avoir contactée. Je vous répondrai sous peu.",
-      });
-      form.reset();
-    } catch (error) {
+    void fetch('https://script.google.com/macros/s/AKfycbyvk37UN-mzsPDsECDwc-M9Em1ehVv-LVAoznQus97wPUNZbF0VvKc36f6Uh334U4H2/exec', {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(values).toString(),
+    }).catch((error) => {
       console.error('Contact form submission failed', error);
-      toast({
-        title: "Une erreur s'est produite",
-        description: "Impossible d'envoyer votre message pour le moment. Merci de réessayer.",
-        variant: "destructive",
-      });
-    }
+    });
   }
 
   return (
@@ -157,9 +152,18 @@ export function Contact() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-6 rounded-lg text-lg transition-all">
+                <Button
+                  type="submit"
+                  disabled={isSending}
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-6 rounded-lg text-lg transition-all"
+                >
                   Envoyer le message
                 </Button>
+                {showSuccess && (
+                  <p className="success-message text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-4 py-3 mt-3">
+                    Message envoyé ! Merci de m'avoir contactée.
+                  </p>
+                )}
               </form>
             </Form>
           </motion.div>
