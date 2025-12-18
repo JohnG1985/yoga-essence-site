@@ -21,8 +21,8 @@ export function Footer() {
             <h4 className="text-lg font-bold text-foreground">Contact</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li>Karine McIntyre</li>
-              <li>Montréal, Québec</li>
-              <li><a href="mailto:info@entresoietmoi.ca" className="hover:text-primary transition-colors">info@entresoietmoi.ca</a></li>
+              <li>Rive-Sud de Montréal</li>
+              <li><a href="mailto:karinemcintyre@gmail.com" className="hover:text-primary transition-colors">karinemcintyre@gmail.com</a></li>
             </ul>
           </div>
           

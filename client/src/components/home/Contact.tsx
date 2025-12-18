@@ -59,7 +59,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Email</h4>
-                  <p className="text-muted-foreground">info@entresoietmoi.ca</p>
+                  <p className="text-muted-foreground">karinemcintyre@gmail.com</p>
                 </div>
               </div>
               
@@ -69,7 +69,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Téléphone</h4>
-                  <p className="text-muted-foreground">+1 (514) 555-0123</p>
+                  <p className="text-muted-foreground">514-742-6878</p>
                 </div>
               </div>
 
@@ -79,7 +79,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Studio</h4>
-                  <p className="text-muted-foreground">Montréal, Québec<br/>(Disponible en ligne également)</p>
+                  <p className="text-muted-foreground">Rive-Sud de Montréal<br/>(Disponible en ligne également)</p>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ export function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="votre@email.com" {...field} className="bg-background" />
+                        <Input placeholder="karinemcintyre@gmail.com" {...field} className="bg-background" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

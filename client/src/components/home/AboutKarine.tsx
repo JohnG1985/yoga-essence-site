@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import karinePortrait from '@assets/generated_images/portrait_of_a_friendly_yoga_instructor.png';
+import karinePortrait from '@assets/generated_images/Karine.jpg';
 import abstractShape from '@assets/generated_images/abstract_soft_watercolor_organic_shapes.png';
 
 export function AboutKarine() {
@@ -22,10 +22,10 @@ export function AboutKarine() {
             className="w-full md:w-1/2 relative"
           >
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] max-w-md mx-auto">
-              <img 
-                src={karinePortrait} 
-                alt="Karine McIntyre" 
-                className="w-full h-full object-cover"
+              <img
+                src={karinePortrait}
+                alt="Karine McIntyre"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             {/* Decorative frame */}
