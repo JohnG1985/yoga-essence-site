@@ -29,7 +29,7 @@ export function AboutKarine() {
               />
             </div>
             {/* Decorative frame */}
-            <div className="absolute top-6 -left-6 w-full h-full border-2 border-primary/30 rounded-2xl -z-0 hidden md:block" />
+            <div className="absolute -inset-3 border-2 border-primary/30 rounded-2xl -z-0 hidden md:block" />
           </motion.div>
 
           {/* Text Column */}
