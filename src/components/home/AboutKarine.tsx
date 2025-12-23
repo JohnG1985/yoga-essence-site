@@ -46,7 +46,7 @@ export function AboutKarine() {
               
               <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  Bienvenue dans l'univers d'Entre Soi et Moi. Mon parcours m'a appris que le yoga n'est pas seulement une pratique physique, mais un véritable art de vivre qui nous permet de tisser des liens profonds entre notre corps, notre esprit et notre quotidien.
+                  Bienvenue dans l'univers d'Entre SoietMoi. Mon parcours m'a appris que le yoga n'est pas seulement une pratique physique, mais un véritable art de vivre qui nous permet de tisser des liens profonds entre notre corps, notre esprit et notre quotidien.
                 </p>
                 <p>
                   Avec douceur et bienveillance, je vous accompagne pour retrouver cet espace de calme intérieur, souvent oublié dans le tumulte de nos journées.

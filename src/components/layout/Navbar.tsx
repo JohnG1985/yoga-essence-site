@@ -59,7 +59,7 @@ export function Navbar() {
           onClick={(e) => handleNavClick(e, '#hero')}
           className="text-2xl font-serif font-bold text-primary tracking-wide"
         >
-          Entre Soi et Moi
+          Entre SoietMoi
         </a>
 
         {/* Desktop Menu */}

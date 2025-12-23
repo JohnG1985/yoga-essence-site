@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 const heroImage = '/attached_assets/generated_images/woman_practicing_yoga_in_a_sunlit_room_with_plants.png';
 
 export function Hero() {
+  const heroTitleLineOne = 'Entre SoietMoi';
+  const heroTitleLineTwo = 'et Moi';
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -27,14 +30,14 @@ export function Hero() {
             Yoga & Bien-être
           </motion.span>
           
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6 leading-tight"
           >
-            Entre Soi <br/>
-            <span className="text-primary italic">et Moi</span>
+            <span className="block">{heroTitleLineOne}</span>
+            <span className="text-primary italic block">{heroTitleLineTwo}</span>
           </motion.h1>
           
           <motion.p 
