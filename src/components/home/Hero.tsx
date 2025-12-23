@@ -34,7 +34,6 @@ export function Hero() {
             className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6 leading-tight"
           >
             <span className="block">Entre SoietMoi</span>
-            <span className="text-primary italic block">et Moi</span>
           </motion.h1>
           
           <motion.p 
