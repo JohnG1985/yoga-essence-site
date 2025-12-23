@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-bold text-primary">Entre Soi et Moi</h3>
+            <h3 className="text-2xl font-serif font-bold text-primary">Entre SoietMoi</h3>
             <p className="text-muted-foreground leading-relaxed">
               Un espace dédié à la connexion intérieure, où le yoga devient un pont entre le quotidien et l'essentiel.
             </p>
@@ -39,7 +39,7 @@ export function Footer() {
         
         <div className="border-t border-primary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground text-center md:text-left">
-            © {new Date().getFullYear()} Entre Soi et Moi. Tous droits réservés.
+            © {new Date().getFullYear()} Entre SoietMoi. Tous droits réservés.
           </p>
 
           <div className="flex items-center gap-4">

@@ -15,7 +15,7 @@ export function Philosophy() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8 rounded-full" />
           <p className="text-xl text-muted-foreground leading-relaxed font-light">
-            Chez Entre Soi et Moi, nous croyons que le bien-être ne devrait pas être une parenthèse exceptionnelle, mais la trame de fond de votre vie. C'est l'art d'habiter pleinement chaque instant.
+            Chez Entre SoietMoi, nous croyons que le bien-être ne devrait pas être une parenthèse exceptionnelle, mais la trame de fond de votre vie. C'est l'art d'habiter pleinement chaque instant.
           </p>
         </motion.div>
       </div>
