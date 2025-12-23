@@ -27,14 +27,14 @@ export function Hero() {
             Yoga & Bien-être
           </motion.span>
           
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6 leading-tight"
           >
-            Entre SoietMoi <br/>
-            <span className="text-primary italic">et Moi</span>
+            <span className="block">Entre SoietMoi</span>
+            <span className="text-primary italic block">et Moi</span>
           </motion.h1>
           
           <motion.p 
