@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 const heroImage = '/attached_assets/generated_images/woman_practicing_yoga_in_a_sunlit_room_with_plants.png';
 
 export function Hero() {
-  const heroTitleLineOne = 'Entre SoietMoi';
-  const heroTitleLineTwo = 'et Moi';
+  const heroTitle = 'Entre SoietMoi';
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -36,8 +35,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6 leading-tight"
           >
-            <span className="block">{heroTitleLineOne}</span>
-            <span className="text-primary italic block">{heroTitleLineTwo}</span>
+            <span className="block">{heroTitle}</span>
           </motion.h1>
           
           <motion.p 
