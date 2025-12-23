@@ -33,7 +33,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6 leading-tight"
           >
-            Entre Soi <br/>
+            Entre SoietMoi <br/>
             <span className="text-primary italic">et Moi</span>
           </motion.h1>
           
